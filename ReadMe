@@ -16,117 +16,117 @@
 		Prin folosirea unei singure directive for(cea mai din exterior bucla) am obtinut:
 
 		Cazul 1 (P5 && resize_factor par):	1 thread:       0.004777
-											                  2 thread uri:   0.002630
-                  											4 thread uri:   0.001487
-                  											8 thread uri:   0.000801
+							2 thread uri:   0.002630
+                  					4 thread uri:   0.001487
+                  					8 thread uri:   0.000801
 
 		Cazul 1 (P5 && resize_factor 3):	1 thread:       0.004598
-                											2 thread uri:   0.002504
-                											4 thread uri:   0.001456
-                											8 thread uri:   0.000997
+                					2 thread uri:   0.002504
+                					4 thread uri:   0.001456
+                					8 thread uri:   0.000997
 
 		Cazul 2 (P6 && resize_factor par):	1 thread:       0.010555
-                  											2 thread uri:   0.005781
-                  											4 thread uri:   0.003078
-                  											8 thread uri:   0.001850
+                  					2 thread uri:   0.005781
+                  					4 thread uri:   0.003078
+                  					8 thread uri:   0.001850
 
 		Cazul 2 (P6 && resize_factor 3):	1 thread:       0.010014
-                											2 thread uri:   0.005356
-                											4 thread uri:   0.002591
-                											8 thread uri:   0.001759
+                					2 thread uri:   0.005356
+                					4 thread uri:   0.002591
+                					8 thread uri:   0.001759
 
 		In acest moment for-ul se paralelizeaza default, dar acest lucru ar putea fi modificat prin 
 	shedule(type:[chunk_size]), type care poare fi dynamic(se dau iteratii la threaduri in functie de cum se termina), static(stabilit de la inceput) sau guided(se dau iteratii la threaduri in functie de cum se termina ]micsorand in timp marimea chuckzeului).
 		Rezultatele obtinute folosind schedule(static):
 
 		Cazul 1 (P5 && resize_factor par):	1 thread:       0.004466
-                    										2 thread uri:   0.002687
-                    										4 thread uri:   0.001433
-                    										8 thread uri:   0.001023
+                    					2 thread uri:   0.002687
+                    					4 thread uri:   0.001433
+                    					8 thread uri:   0.001023
 
 		Cazul 1 (P5 && resize_factor 3):	1 thread:       0.004562
-                											2 thread uri:   0.002525
-                											4 thread uri:   0.001526
-                											8 thread uri:   0.001027
+                					2 thread uri:   0.002525
+                					4 thread uri:   0.001526
+                					8 thread uri:   0.001027
 
 		Cazul 2 (P6 && resize_factor par):	1 thread:       0.010643
-                  											2 thread uri:   0.005600
-                  											4 thread uri:   0.003013
-                  											8 thread uri:   0.001609
+                  					2 thread uri:   0.005600
+                  					4 thread uri:   0.003013
+                  					8 thread uri:   0.001609
 
 		Cazul 2 (P6 && resize_factor 3):	1 thread:       0.009921
-                											2 thread uri:   0.005246
-                											4 thread uri:   0.002882
-                											8 thread uri:   0.001799
+                					2 thread uri:   0.005246
+                					4 thread uri:   0.002882
+                					8 thread uri:   0.001799
 
 		In acest moment, observ ca un schedule cu un chuck static nu aduce o imbunatatire semnificativa. 
 	O impartire dinamica duce la:
 
 		Cazul 1 (P5 && resize_factor par):	1 thread:       0.002363
-                  											2 thread uri:   0.001329
-                  											4 thread uri:   0.000791
-                  											8 thread uri:   0.000560
+                  					2 thread uri:   0.001329
+                  					4 thread uri:   0.000791
+                  					8 thread uri:   0.000560
 
 		Cazul 1 (P5 && resize_factor 3):	1 thread:       0.002313
-                											2 thread uri:   0.001267
-                											4 thread uri:   0.000751
-                											8 thread uri:   0.000524
+                					2 thread uri:   0.001267
+                					4 thread uri:   0.000751
+                					8 thread uri:   0.000524
 
 		Cazul 2 (P6 && resize_factor par):	1 thread:       0.005605
-                  											2 thread uri:   0.003067
-                  											4 thread uri:   0.001725
-                  											8 thread uri:   0.001120
+                  					2 thread uri:   0.003067
+                  					4 thread uri:   0.001725
+                  					8 thread uri:   0.001120
 
 		Cazul 2 (P6 && resize_factor 3):	1 thread:       0.005247
-                											2 thread uri:   0.002759
-                											4 thread uri:   0.001611
-                											8 thread uri:   0.001049
+                					2 thread uri:   0.002759
+                					4 thread uri:   0.001611
+                					8 thread uri:   0.001049
 
 		Pentru ca am paralelizat doar for-ul din exterior, am incercat - folosind collapse -  sa paralelizez
 	for-urile imbricate. Rezultatele sunt:
 
 		Cazul 1 (P5 && resize_factor par):	1 thread:       0.009040
-                    										2 thread uri:   0.008890
-                    										4 thread uri:   0.005794
-                    										8 thread uri:   0.005198
+                    					2 thread uri:   0.008890
+                    					4 thread uri:   0.005794
+                    					8 thread uri:   0.005198
 
 		Cazul 1 (P5 && resize_factor 3):	1 thread:       0.006910
-                											2 thread uri:   0.005151
-                											4 thread uri:   0.003147
-                											8 thread uri:   0.002622
+                					2 thread uri:   0.005151
+                					4 thread uri:   0.003147
+                					8 thread uri:   0.002622
 
 		Cazul 2 (P6 && resize_factor par):	1 thread:       0.015197
-                  											2 thread uri:   0.011290
-                  											4 thread uri:   0.006804
-                  											8 thread uri:   0.005181
+                  					2 thread uri:   0.011290
+                  					4 thread uri:   0.006804
+                  					8 thread uri:   0.005181
 
 		Cazul 2 (P6 && resize_factor 3):	1 thread:       0.012231
-                											2 thread uri:   0.007827
-                											4 thread uri:   0.003917
-                											8 thread uri:   0.002965
+                					2 thread uri:   0.007827
+                					4 thread uri:   0.003917
+                					8 thread uri:   0.002965
 
 		Pentru calcul sumei am folosit pentru una dintre variante reduction, desi aceasta varianta nu scaleaza
 	pentru aceasta varianta de implementare(deoarece - retinut la collapse - un singur thread reuseste doar sa produce overhead):
 
 		Cazul 1 (P5 && resize_factor par):	1 thread:       0.005880
-                  											2 thread uri:   0.002626
-                  											4 thread uri:   0.001566
-                  											8 thread uri:   0.001048
+                  					2 thread uri:   0.002626
+                  					4 thread uri:   0.001566
+                  					8 thread uri:   0.001048
 
 		Cazul 1 (P5 && resize_factor 3):	1 thread:       0.004437
-                											2 thread uri:   0.002470
-                											4 thread uri:   0.001163
-                											8 thread uri:   0.000961
+                					2 thread uri:   0.002470
+                					4 thread uri:   0.001163
+                					8 thread uri:   0.000961
 
 		Cazul 2 (P6 && resize_factor par):	1 thread:       0.010989
-                  											2 thread uri:   0.005786
-                  											4 thread uri:   0.002698
-                  											8 thread uri:   0.001345
+                  					2 thread uri:   0.005786
+                  					4 thread uri:   0.002698
+                  					8 thread uri:   0.001345
 
 		Cazul 2 (P6 && resize_factor 3):	1 thread:       0.009431
-                											2 thread uri:   0.005158
-                											4 thread uri:   0.002363
-                											8 thread uri:   0.001411
+                					2 thread uri:   0.005158
+                					4 thread uri:   0.002363
+                					8 thread uri:   0.001411
 
 	Observatii:
 		Voi paraleliza folosind for-ul cel mai din exterior impreuna un chuck calculat dinamic. Reduction cu
